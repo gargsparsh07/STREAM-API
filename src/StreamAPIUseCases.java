@@ -7,20 +7,16 @@ public class StreamAPIUseCases {
 
         List<Integer> numbers = Arrays.asList(2, 5, 8, 11, 14);
 
-        // UC2.1
-        numbers.stream()
-                .forEach(System.out::println);
+        numbers.stream().forEach(System.out::println);
 
-        // UC2.2
-        numbers.stream()
-                .map(n -> n * 2)
-                .forEach(System.out::println);
+        numbers.stream().map(n -> n * 2).forEach(System.out::println);
 
-        // UC2.3: Collect results after map
-        List<Integer> doubled = numbers.stream()
-                .map(n -> n * 2)
-                .toList();
-
+        List<Integer> doubled = numbers.stream().map(n -> n * 2).toList();
         System.out.println(doubled);
+
+        // UC2.4: Filter even numbers
+        numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .forEach(System.out::println);
     }
 }
