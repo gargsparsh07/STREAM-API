@@ -10,5 +10,10 @@ public class StreamAPIUseCases {
         // UC2.1: Create stream and iterate elements
         numbers.stream()
                 .forEach(System.out::println);
+
+        // UC2.2: Transform elements using map
+        numbers.stream()
+                .map(n -> n * 2)
+                .forEach(System.out::println);
     }
 }
