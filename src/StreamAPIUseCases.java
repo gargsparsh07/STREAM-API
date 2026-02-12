@@ -51,7 +51,7 @@ public class StreamAPIUseCases {
         System.out.println("Sum: " + sum);
         System.out.println("Average: " + avg);
 
-        // UC2.8: Match all or any even numbers
+        // UC2.8
         boolean anyEven = numbers.stream()
                 .anyMatch(n -> n % 2 == 0);
 
@@ -60,5 +60,10 @@ public class StreamAPIUseCases {
 
         System.out.println("Any Even: " + anyEven);
         System.out.println("All Even: " + allEven);
+
+        // UC2.9: Sort ascending using sorted
+        numbers.stream()
+                .sorted()
+                .forEach(System.out::println);
     }
 }
