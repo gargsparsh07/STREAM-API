@@ -10,31 +10,35 @@ public class StreamAPIUseCases {
 
         numbers.stream().forEach(System.out::println);
 
-        numbers.stream()
-                .map(n -> n * 2)
-                .forEach(System.out::println);
+        numbers.stream().map(n -> n * 2).forEach(System.out::println);
 
-        List<Integer> doubled = numbers.stream()
-                .map(n -> n * 2)
-                .toList();
+        List<Integer> doubled = numbers.stream().map(n -> n * 2).toList();
         System.out.println(doubled);
 
-        numbers.stream()
-                .filter(n -> n % 2 == 0)
-                .forEach(System.out::println);
+        numbers.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
 
         Optional<Integer> firstEven = numbers.stream()
                 .filter(n -> n % 2 == 0)
                 .findFirst();
         firstEven.ifPresent(System.out::println);
 
-        // UC2.6: Find Min and Max using min and max
-        numbers.stream()
-                .min(Integer::compareTo)
+        numbers.stream().min(Integer::compareTo)
                 .ifPresent(min -> System.out.println("Min: " + min));
 
-        numbers.stream()
-                .max(Integer::compareTo)
+        numbers.stream().max(Integer::compareTo)
                 .ifPresent(max -> System.out.println("Max: " + max));
+
+        // UC2.7: Sum and Average
+        int sum = numbers.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
+
+        double avg = numbers.stream()
+                .mapToInt(Integer::intValue)
+                .average()
+                .orElse(0);
+
+        System.out.println("Sum: " + sum);
+        System.out.println("Average: " + avg);
     }
 }
